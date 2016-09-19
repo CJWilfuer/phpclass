@@ -9,70 +9,10 @@
 <header> <?php include  '../inclues/header.php'?></header>
 <nav><?php include '../includes/nav.php' ?></nav>
     <main>
-        <h3>
-            <?php
-            $Number1 = "100";
-            $Number2 = "70";
-
-            $total .= "the total is: $";
-            $total .= $Number1 + $Number2;
-
-            echo $total;
-            ?>
-        </h3>
-<h3>While loop</h3>
-        <?php
-        $sum = 1;
-
-        while ($sum < 7)
-        {
-
-            echo "<h$sum>HelloWorld </h$sum>";
-            $sum++;
-        }
-
-      echo  "<h3>do loop</h3>";
-
-        $sum = 6;
-
-        do
-        {
-
-            echo "<h$sum>HelloWorld </h$sum>";
-            $sum--;
-        }while ($sum > 0);
-
-        echo  "<br/><br/><h3>do loop</h3>";
-
-        for ($i =1; $i < 7; $i++)
-        {
-            echo "<h$i>HelloWorld </h$i>";
-
-        }
-        echo  "<br/><br/><h3>string stuff</h3>";
-        $FullName = "Bob smith";
-        echo $FullName;
-        echo "<br /><br />";
-
-        $FullName = strtoupper($FullName);
-        echo $FullName;
-        echo "<br /><br />";
-
-        $FullName = strtolower($FullName);
-        echo $FullName;
-        echo "<br /><br />";
-
-        $nameParts = explode(' ',$FullName);
-        echo "First Name" . $nameParts[0];
-        echo "<br /><br />";
-
-        echo "Last Name" . $nameParts[1];
-
-
-
-        ?>
-
+<img src="images/cale.jpeg" alt="picture of cale"/>
+<P>my name is cale Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat risus ut auctor ornare. Duis dictum, ipsum consequat lobortis facilisis, turpis erat vehicula metus, eu pretium lacus libero id elit. Aenean auctor justo eu enim mollis laoreet. Duis id commodo libero, vel placerat justo. Integer varius eu est sit amet convallis. Curabitur blandit dignissim neque in tincidunt. Etiam in quam at ligula tincidunt ornare eu in nibh. Donec quis blandit nunc. Quisque tristique magna felis, sit amet ullamcorper libero ultrices eget. Suspendisse potenti. Mauris semper lectus non suscipit facilisis. Nunc enim magna, mattis eu mattis in, pellentesque ut neque. Phasellus aliquet ullamcorper leo, vitae ultricies turpis lobortis non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut eu ante arcu. Nullam id enim vitae libero laoreet malesuada. Quisque congue dui ultricies nunc sagittis, vitae rhoncus massa finibus.</P>
     </main>
+
 
     <footer><?php include '../includes/footer.php'?> </footer>
 </body>

@@ -1,3 +1,1 @@
-<header>
-    <?php include  'includes/header.php' ?>
-</header>
+<h1> Cales Website</h1>
