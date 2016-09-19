@@ -7,15 +7,20 @@ $secperyear = 365.25 *$secperDay;
 $now = time();
 $eos = mktime(15,20,0,12,20,2016);
 
-$seconds = $eos - $now;
+
 
 $years = Floor($seconds / $secperyear);
-
-$seconds = $seconds - ($years * $secperyear);
+$seconds = $eos - $now;
 
 $Days = Floor($seconds / $secperDay);
+$seconds = $seconds - ($years * $secperyear);
 
+
+$hours = floor($seconds/$secPerMin);
 $seconds -= $days *$secperDay;
+
+$minutes = floor($seconds/ $secPerMin);
+$seconds = $seconds - ($minutes * $secPerMin);
 
 ?>
 
@@ -32,7 +37,7 @@ $seconds -= $days *$secperDay;
 
 <main>
     <h3>end of semester</h3>
-    <P>years:<? $years?>|Months:0|Days:<? $Days?>|hours:0|seconds:0|</P>
+    <P>years:<? $years?>| Days:<? $Days?>| hours:<? $hours?>| seconds<? $seconds?>|</P>
 
 </main>
 <div id="page">
