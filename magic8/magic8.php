@@ -39,13 +39,19 @@ if($question ==""){
         <?php include  'includes/head.php'?>
     </head>
 <body>
-        <header> <?php include  'includes/header.php'?></header>
+        <header>
+            <?php include  'includes/header.php'?>
+        </header>
 
-        <nav><?php include 'includes/nav.php' ?></nav>
+        <nav>
+            <?php include 'includes/nav.php' ?>
+        </nav>
     <main>
     <h3>Magic 8 Ball</h3>
 <br />
-    <Marquee><?=$answer?></Marquee>
+    <Marquee>
+        <?=$answer?>
+    </Marquee>
     <br />
     <p>ask a question</p>
 
