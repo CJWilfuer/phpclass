@@ -27,43 +27,26 @@ $seconds = $seconds - ($minutes * $secPerMin);
 
 <!DOCTYPE html>
 <html lang="en">
-<head>  charset= "utf-8" />
-
-    <title>Lab: 2 Column Layout Using Floats</title>
-    <link rel="stylesheet" type="text/css"  href="../css/Base.css"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cale's cool Website</title>
+   <link> rel = "stylesheet" type="text/css" href="/CSS/base.css"></link>
 </head>
-
 <body>
-
 <main>
-    <h3>end of semester</h3>
-    <P>years:<? $years?>| Days:<? $Days?>| hours:<? $hours?>| seconds<? $seconds?>|</P>
-
+    <P>Years:<?$years?>|Days:<?$Days?>|Hours:<?$hours?>|Seconds<?$seconds?></P>
 </main>
-<div id="page">
-    <header>
-        <?php include '../includes/header.php'?>
 
+    <header>
+        <?php include 'includes/header.php'?>
     </header>
 
     <nav>
-        <ul>
-
-            <li><a href="http://www.learningave.info">Nav Five</a></li>
-        </ul>
+<?php include  'includes/nav.php'?>
     </nav>
 
-
-    <section>
-
-        <p>hi</p>
-
-        <section>
-
             <footer>
-                <h5>Copyright Info: </h5>
+                <?php include  'includes/footer.php'?>
             </footer>
-</div>
-
 </body>
 </html>

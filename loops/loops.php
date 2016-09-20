@@ -2,13 +2,13 @@
 <html lang="en">
 <link rel = "stylesheet" type="text/css" href="../CSS/base.css">
 <head>
-    <title>Cale's cool Website</title>
+    <?php include  'includes/head.php'?>
 </head>
 <body>
 <header>
-    <?php include  '../inclues/header.php'?>
+    <?php include  'includes/header.php'?>
 </header>
-<nav><?php include '../includes/nav.php' ?></nav>
+<nav><?php include 'includes/nav.php' ?></nav>
 <main>
     <h3>
         <?php
@@ -74,6 +74,6 @@
     ?>
 
 </main>
-<footer><?php include '../includes/footer.php'?> </footer>
+<footer><?php include 'includes/footer.php'?> </footer>
 </body>
 </html>

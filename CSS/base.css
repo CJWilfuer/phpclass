@@ -38,8 +38,8 @@ ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
-    background-color: azure;
+    width: 250px;
+    background-color: purple;
 }
 
 li a{
@@ -50,12 +50,12 @@ li a{
 }
 
 li a:hover{
-    background-color: aquamarine;
-    color: white;
+    background-color: olive;
+    color: blue;
 }
 
 ul{
-    border: 1px solid aquamarine;
+    border: 1px solid blue;
 }
 
 li{
