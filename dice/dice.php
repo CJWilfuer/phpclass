@@ -19,7 +19,7 @@ $PDice2[3] = 4;
 $PDice2[4] = 5;
 $PDice2[5] = 6;
 
-$inu1 = mt_rand(0,5);
+$inum1 = mt_rand(0,5);
 $inum2 = mt_rand(0,5);
 $Pnumber = $PDice1[$inum1] + $PDice2[$inum2];
 
@@ -41,43 +41,40 @@ $CDice2[3] = 4;
 $CDice2[4] = 5;
 $CDice2[5] = 6;
 
-$CDice2 = array();
-$CDice2[0] = 1;
-$CDice2[1] = 2;
-$CDice2[2] = 3;
-$CDice2[3] = 4;
-$CDice2[4] = 5;
-$CDice2[5] = 6;
+$CDice3 = array();
+$CDice3[0] = 1;
+$CDice3[1] = 2;
+$CDice3[2] = 3;
+$CDice3[3] = 4;
+$CDice3[4] = 5;
+$CDice3[5] = 6;
 
 $inum3 = mt_rand(0,5);
 $inum4 = mt_rand(0,5);
 $inum5 = mt_rand(0,5);
-$Cnumber = $CDice1[$inum3] + $CDice2[$inum4] + $CDice[$inum5];
+$Cnumber = $CDice1[$inum3] + $CDice2[$inum4] + $CDice3[$inum5];
 
 
 //echo $Cnumber $PNumber;
 
 if ($Cnumber == $Pnumber) {
-    $draw = " draw";
-    echo $draw;
+    $message = " draw";
+
+
 }
 
 
 
-elseif($Cnumber > $Pnumber){
-    $Cwin = " the computer wins";
-echo  $Cwin;
+if($Cnumber > $Pnumber){
+    $message = " the computer wins";
+
 }
 
-elseif($Pnumber > $Cnumber){
-    $PWin = " the player wins";
+if($Pnumber > $Cnumber){
+    $message = " the player wins";
 
-    echo $PWin;
+
 }
-echo "<br>";
-echo "the computer scored a ", $Cnumber;
-echo "<br>";
-echo "you scored a ", $Pnumber;
 
 ?>
 
@@ -96,12 +93,22 @@ echo "you scored a ", $Pnumber;
     <?php include '../includes/nav.php' ?>
 </nav>
 <main>
-    <h3>dice roll</h3>
-    <br />
+    <h3>refresh and dice roll</h3>
+    <br/>
 
-    <p>roll the dice</p>
+    <h3><?=$message?></h3>
 
 
+    <br/>
+    <img src="img/dice_<?=$PDice1?>/.png"/>
+    <img src="img/.jpg"/>
+    <p> You scored a <?=$Pnumber?></p>
+    <img src="img/.jpg"/>
+    <img src="img/.jpg"/>
+    <img src="img/.jpg"/>
+
+
+    <p> The computer Scored a <?=$Cnumber?></p>
 
 
 

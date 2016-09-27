@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if(isset($_GET["texQuestion"])) {
-    $question=$_GET["texQuestion"];
+if(isset($_GET["txtQuestion"])) {
+    $question=$_GET["txtQuestion"];
 }else{
     $question= "";
 }
-if(isset($_SESSION["prevQuest"])){
-    $PreveQuest = $_SESSION["PrevQuest"];
+if(isset($_SESSION["preveQuest"])){
+    $PreveQuest = $_SESSION["PreveQuest"];
 }else{
     $PreveQuest ="";
 }
@@ -43,9 +43,8 @@ if(isset($_SESSION["prevQuest"])){
     } else {
         $inum = mt_rand(0, 19);
         $answer = $responses[$inum];
-        $_SESSION["prevQuest"] = $question;
+        $_SESSION["preveQuest"] = $question;
     }
-
 ?>
 
 <!doctype html>
