@@ -21,7 +21,7 @@ if($question ==""){
     $answer = "ask me a new quetion";
 }else{
     $responses = array();
-    $responses[0] = "Ask agin latter";
+    $responses[0] = "Ask again latter";
     $responses[1] = "Yes";
     $responses[2] = "No";
     $responses[3] = "It appears to be so";
