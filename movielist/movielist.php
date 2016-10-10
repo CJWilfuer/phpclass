@@ -38,7 +38,7 @@
             echo "<tr>";
             echo "<td>".$row["movieId"]."</td>";
             echo "<td>".$row["movieTitle"]."</td>";
-            echo "<td>".$row["movieating"]."</td>";
+            echo "<td>".$row["movieRating"]."</td>";
             echo "</tr>";
             $row = $sql->fetch();
         }
@@ -47,13 +47,15 @@
         $db = null;
 
     }
-    catch (PDOExepions $e){
-        $error = $e->GetMessage();
+    catch (PDOException $e){
+        $error = $e->getMessage();
         echo "Error: $error";
     }
     ?>
 
     </table>
+    <br/><br />
+    <a href="movieadd.php">add new movie</a>
 
 </main>
 
