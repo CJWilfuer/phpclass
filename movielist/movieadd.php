@@ -59,11 +59,11 @@ if (!empty($_POST["txtTitle"])){
         </tr>
         <tr height = "40">
             <th>Movie Name</th>
-            <td><input type= "txtTitle" name="txtTitle" type="text" size = "50"></td>
+            <td><input id= "txtTitle" name="txtTitle" type="text" size = "50"></td>
         </tr>
         <tr height = "40">
             <th>Movie Raiting</th>
-           <td><input type= "txtRating" name="txtRating" type="text" size = "50"></td>
+           <td><input id= "txtRating" name="txtRating" type="text" size = "50"></td>
         </tr>
            <tr height="60">
             <td colspan="2">

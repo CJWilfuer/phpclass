@@ -88,43 +88,43 @@ if (!empty($_POST["txtCustomerID"])){
             </tr>
             <tr height = "40">
                 <th>Movie Name</th>
-                <td><input type= "txtCustomerID" name="txtCustomerID" type="text" size = "50"></td>
+                <td><input id=txtCustomerID" name="txtCustomerID" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Raiting</th>
-                <td><input type= "txtFirstName" name="txtFirstName" type="text" size = "50"></td>
+                <td><input id= "txtFirstName" name="txtFirstName" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Name</th>
-                <td><input type= "txtLastName" name="txtLastName" type="text" size = "50"></td>
+                <td><input id= "txtLastName" name="txtLastName" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Raiting</th>
-                <td><input type= "txtAddress" name="txtAddress" type="text" size = "50"></td>
+                <td><input id= "txtAddress" name="txtAddress" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Name</th>
-                <td><input type= "txtCity" name="txtCity" type="text" size = "50"></td>
+                <td><input id= "txtCity" name="txtCity" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Raiting</th>
-                <td><input type= "txtState" name="txtState" type="text" size = "50"></td>
+                <td><input id= "txtState" name="txtState" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Name</th>
-                <td><input type= "txtZip" name="txtZip" type="text" size = "50"></td>
+                <td><input id= "txtZip" name="txtZip" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Raiting</th>
-                <td><input type= "txtPhone" name="txtPhone" type="text" size = "50"></td>
+                <td><input id= "txtPhone" name="txtPhone" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Name</th>
-                <td><input type= "txtEmail" name="txtEmail" type="text" size = "50"></td>
+                <td><input id= "txtEmail" name="txtEmail" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>Movie Raiting</th>
-                <td><input type= "txtPassword" name="txtPassword" type="text" size = "50"></td>
+                <td><input id= "txtPassword" name="txtPassword" type="text" size = "50"></td>
             </tr>
             <tr height="60">
                 <td colspan="2">

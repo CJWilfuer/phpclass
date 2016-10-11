@@ -35,9 +35,10 @@
        //echo $row["movieTitle"];
 
         while ($row!=null){
+            $movieID = $row["movieId"];
             echo "<tr>";
             echo "<td>".$row["movieId"]."</td>";
-            echo "<td>".$row["movieTitle"]."</td>";
+            echo "<td><a href='movieupdate.php?id=$movieID'> ".$row["movieTitle"]."</a></td>";
             echo "<td>".$row["movieRating"]."</td>";
             echo "</tr>";
             $row = $sql->fetch();

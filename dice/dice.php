@@ -100,13 +100,19 @@ if($Pnumber > $Cnumber){
 
 
     <br/>
-    <img src="img/dice_<?=$PDice1?>/.png"/>
+    <?php /*
+   if($CDice1 = 1){
+       <img src="img/dice1_<?=$PDice1?>/.png"/>
+   }
+
+
     <img src="img/.jpg"/>
     <p> You scored a <?=$Pnumber?></p>
     <img src="img/.jpg"/>
     <img src="img/.jpg"/>
     <img src="img/.jpg"/>
-
+*/
+?>
 
     <p> The computer Scored a <?=$Cnumber?></p>
 
