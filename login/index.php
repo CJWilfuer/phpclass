@@ -1,33 +1,46 @@
 <?php
 session_start();
 
-if (!empty($_POST["txtUsername"])){
-    if (!empty($_POST["txtPassword"])){
-        $userName =$_POST["txtUsername"];
+if (!empty($_POST["txtEmail"])){
+    if (!empty($_POST["txtPassword"])) {
+        $Email = $_POST["txtEmail"];
         $Password = $_POST["txtPassword"];
         $errmsg = "";
 
-        if( strtolower($userName)=="admin"  && $Password=="P@ss"){
-            //admin area
-            $_SESSION["UID"] = 1;
-            header("Location:admin.php");
-        }else{
-                if(strtolower($userName)=="user"  && $Password=="P@ss"){
-                    // member area
-                    $_SESSION["UID"] = 2;
-                    header("Location:member.php");
+        include '../includes/dbConnect.php';
+        try {
+            $db = new PDO($dsn, $username, $password, $options);
+            $sql = $db->prepare("select * from memberLogin where memberEmail = :Email ");
+            $sql->bindValue(":Email", $Email);
+            $sql->execute();
+            $row = $sql->fetch();
 
-                }else{
-                    //login error
-                    $errmsg= "Wrong username or password";
+            if ($row != null) {
+                $hashedPassword = md5($password . $row["memberKey"]);
+
+                if ($hashedPassword == $row["memberPassword"]) {
+                    $_SESSION["UID"] = 1;
+                    $_SESSION["RoleId"] = $row["RoleID"];
+                    if ($row["RoleID"] == 1) {
+                        header("Location:admin.php");
+                    } else {
+                        header("Location:member.php");
+                    }
+                } else {
+                    $errmsg = "wrong username or password";
                 }
-
+            } else {
+                $errmsg = "wrong username or Password";
             }
+
+            $sql = null;
+            $db = null;
+        } catch (PDOException $e) {
+            $error = $e->getMessage();
+            echo "Error: $error";
         }
-
+    }
 }
-
-
 
 /*
 if (!empty($_POST["txtTitle"])){
@@ -107,8 +120,8 @@ if (!empty($_GET["id"])){
                 <td colspan="2"><h3>user Login</h3></td>
             </tr>
             <tr height = "40">
-                <th>UserName</th>
-                <td><input id="txtUsername" name="txtUsername" type="text" value="<?=$title?>" size = "50"></td>
+                <th>Email</th>
+                <td><input id="txtEmail" name="txtEmail" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>password</th>
