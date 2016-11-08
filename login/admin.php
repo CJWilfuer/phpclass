@@ -2,7 +2,9 @@
 session_start();
 
 
- sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+ sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535),
+     mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535),
+     mt_rand(0, 65535), mt_rand(0, 65535));
 
 
 #if($_SESSION["RoleID"]!=1){
@@ -45,7 +47,8 @@ if(isset($_POST["Submitted"])) {
 
     try {
         $db = new PDO($Sdn, $username, $password, $options);
-        $sql = $db->prepare("insert into memberLogin (memberName, memberEmail memberPasswprd, RoleID, memberKey) VALUE (:NAME , :Email,:Passwprd,:ID,:Key)");
+        $sql = $db->prepare("insert into memberLogin (memberName, memberEmail memberPasswprd,
+        RoleID, memberKey) VALUE (:NAME , :Email,:Passwprd,:ID,:Key)");
 
         $sql->blindvalue(":Name", $FName);
         $sql->blindvalue(":Email", $Email);
