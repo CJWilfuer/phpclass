@@ -19,8 +19,8 @@ $PDice2[4] = 4;
 $PDice2[5] = 5;
 $PDice2[6] = 6;
 
-$inum1 = mt_rand(0,5);
-$inum2 = mt_rand(0,5);
+$inum1 = mt_rand(1,6);
+$inum2 = mt_rand(1,6);
 $Pnumber = $PDice1[$inum1] + $PDice2[$inum2];
 
 //echo pnumber;
@@ -49,9 +49,9 @@ $CDice3[4] = 4;
 $CDice3[5] = 5;
 $CDice3[6] = 6;
 
-$inum3 = mt_rand(0,5);
-$inum4 = mt_rand(0,5);
-$inum5 = mt_rand(0,5);
+$inum3 = mt_rand(1,6);
+$inum4 = mt_rand(1,6);
+$inum5 = mt_rand(1,6);
 $Cnumber = $CDice1[$inum3] + $CDice2[$inum4] + $CDice3[$inum5];
 
 
@@ -59,21 +59,16 @@ $Cnumber = $CDice1[$inum3] + $CDice2[$inum4] + $CDice3[$inum5];
 
 if ($Cnumber == $Pnumber) {
     $message = " draw";
-
-
 }
 
 
 
 if($Cnumber > $Pnumber){
     $message = " the computer wins";
-
 }
 
 if($Pnumber > $Cnumber){
     $message = " the player wins";
-
-
 }
 
 ?>
@@ -107,7 +102,7 @@ if($Pnumber > $Cnumber){
     <img src="../img/dice_<?=$inum4?>.png">
     <img src="../img/dice_<?=$inum5?>.png">
     <br/>
-    <p> you Scored a <?=$Pnumber?></p>
+    <p> You Scored a <?=$Pnumber?></p>
 <br/>
     <img src="../img/dice_<?=$inum1?>.png">
     <img src="../img/dice_<?=$inum2?>.png">

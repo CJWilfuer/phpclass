@@ -34,7 +34,7 @@ $Seconds = $Seconds - ($Minutes * $SecPerMin);
 </head>
 <body>
 <main>
-    <P>Years:<?=$Years?>|Days:<?=$Days?>|Hours:<?=$Hours?>|Seconds<?=$Seconds?></P>
+    <P>Years:<?=$Years?>|Days:<?=$Days?>|Hours:<?=$Hours?>|Minutes:<?=$Minutes?>|Seconds<?=$Seconds?></P>
 </main>
 
     <header>

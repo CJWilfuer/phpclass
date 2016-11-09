@@ -1,15 +1,15 @@
 <?php
 session_start();
 
-if(isset($_GET["txtQuestion"])) {
-    $question=$_GET["txtQuestion"];
+if(isset($_Post["txtQuestion"])) {
+    $question=$_Post["txtQuestion"];
 }else{
     $question= "";
 }
 if(isset($_SESSION["preveQuest"])){
     $PreveQuest = $_SESSION["PreveQuest"];
 }else{
-    $PreveQuest ="";
+    $PreveQuest = "";
 }
 
     $responses = array();
@@ -50,33 +50,24 @@ if(isset($_SESSION["preveQuest"])){
 <!doctype html>
 <html lang="en">
     <head>
-        <?php include  '../includes/head.php'?>
+        <meta CHARSET="UTF-8">
+        <title>Majic 8 ball</title>
+        <link rel ="stylesheet" type="text/css" href="../CSS/base.css">
     </head>
 <body>
-        <header>
-            <?php include  '../includes/header.php'?>
-        </header>
-
-        <nav>
-            <?php include '../includes/nav.php' ?>
-        </nav>
+        <header><?php include  '../includes/header.php'?></header>
+        <nav><?php include '../includes/nav.php' ?></nav>
     <main>
     <h3>Magic 8 Ball</h3>
 <br />
-    <Marquee>
-        <?=$answer?>
-    </Marquee>
+    <Marquee><?=$answer?></Marquee>
     <br />
     <p>ask a question</p>
-
-    <form action="magic8.php" method="get">
-        <input type="text" id="txtQuestion" name="txtQuestion" />
-        <input type="submit" value="Ask the 8Ball">
-
+    <form Method="post" action="magic8.php">
+        <input type="text" id="txtQuestion" name="txtQuestion" value="<?=$question?>"></p>
+        <input type="submit" value="Ask the 8 Ball">
     </form>
    </main>
-
-
 <footer><?php include '../includes/footer.php'?> </footer>
 </body>
 </html>
