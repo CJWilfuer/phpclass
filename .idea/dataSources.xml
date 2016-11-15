@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - phpclass@10.4.132.21" uuid="e8712ab3-4636-49f3-bc18-69ac75256019">
+    <data-source source="LOCAL" name="MySQL - phpclass@10.4.134.162" uuid="e8712ab3-4636-49f3-bc18-69ac75256019">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://10.4.132.21:3306/phpclass</jdbc-url>
+      <jdbc-url>jdbc:mysql://10.4.134.162:3306/phpclass</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
