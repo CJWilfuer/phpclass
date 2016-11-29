@@ -1,15 +1,14 @@
 <?php
 session_start();
-
-
- sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535),
+$errmsg ="";
+$key = sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535),
      mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535),
      mt_rand(0, 65535), mt_rand(0, 65535));
 
 
-#if($_SESSION["RoleID"]!=1){
-#header("Location:index.php");
-#}
+if($_SESSION["RoleID"]!=1){
+header("Location:index.php");
+}
 
 if(isset($_POST["Submitted"])) {
     if (isset($_POST["txtFName"])) {
@@ -54,7 +53,7 @@ if(isset($_POST["Submitted"])) {
         $sql->blindvalue(":Email", $Email);
         $sql->blindvalue(":Password", md5($Password . $Key));
         $sql->blindvalue(":RID", $Role);
-        $sql->blindvalue(":Key", $XXXXXX);
+        $sql->blindvalue(":Key", $key);
         $sql->execute();
     }
 catch (PDOException $e){
