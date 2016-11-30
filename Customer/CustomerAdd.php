@@ -1,18 +1,21 @@
 <?php
-
-if (!empty($_POST["txtCustomerID"])){
-    if(!empty($_POST["txtfirstName"])){
-        if(!empty($_POST["txtLastName"])){
-            if(!empty($_POST["txtAddress"])){
-                if(!empty($_POST["txtCity"])){
-                    if(!empty($_POST["txtState"])){
-                        if(!empty($_POST["txtZip"])){
-                            if(!empty($_POST["txtPhone"])){
-                                if(!empty($_POST["txtEmail"])){
-                                    if(!empty($_POST["txtPassword"])) {
+$errmsg ="";
+$key = sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535),
+    mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535),
+    mt_rand(0, 65535), mt_rand(0, 65535));
 
 
-                                        $CustomerID = ($_POST["txtCustomerID"]);
+    if(!empty($_POST["txtfirstName"])) {
+        if (!empty($_POST["txtLastName"])) {
+            if (!empty($_POST["txtAddress"])) {
+                if (!empty($_POST["txtCity"])) {
+                    if (!empty($_POST["txtState"])) {
+                        if (!empty($_POST["txtZip"])) {
+                            if (!empty($_POST["txtPhone"])) {
+                                if (!empty($_POST["txtEmail"])) {
+                                    if (!empty($_POST["txtPassword"])) {
+
+
                                         $FirstName = ($_POST["txtFirstName"]);
                                         $LastName = ($_POST["txtLastName"]);
                                         $Address = ($_POST["txtAddress"]);
@@ -28,8 +31,7 @@ if (!empty($_POST["txtCustomerID"])){
 
                                         try {
                                             $db = new PDO($dsn, $username, $password, $options);
-                                            $sql = $db->prepare("insert into Customer(CustomerID, FirstName, LastName, Address, City, State, Zip, Phone, Email, Password) Value(:CustomerID, :FirstName, :LastName, :Address, :City, :State, :Zip, :Phone, :Email, :Password");
-                                            $sql->bindValue(":CustomerID", $CustomerID);
+                                            $sql = $db->prepare("insert into Customer(FirstName, LastName, Address, City, State, Zip, phone, Email, Password) Value(:FirstName, :LastName, :Address, :City, :State, :Zip, :phone, :Email, :Password)");
                                             $sql->bindValue(":FirstName", $FirstName);
                                             $sql->bindValue(":LastName", $LastName);
                                             $sql->bindValue(":Address", $Address);
@@ -38,10 +40,10 @@ if (!empty($_POST["txtCustomerID"])){
                                             $sql->bindValue(":Zip", $Zip);
                                             $sql->bindValue(":Phone", $Phone);
                                             $sql->bindValue(":Email", $Email);
-                                            $sql->bindValue(":Password", $Password);
+                                            $sql->bindValue(":Password", $key);
                                             $sql->execute();
 
-                                            echo $row  ["Customer"];
+                                            echo $row  ["FirstName"];
                                             $db = null;
 
 
@@ -56,15 +58,14 @@ if (!empty($_POST["txtCustomerID"])){
 
                                         exit();
                                     }
-                                    }
                                 }
                             }
                         }
                     }
                 }
             }
+        }
     }
-}
 
 
 ?>
@@ -84,51 +85,48 @@ if (!empty($_POST["txtCustomerID"])){
     <form method="post">
         <table border="1" width="80%">
             <tr height="60">
-                <td colspan="2"><h3>Add new movie</h3></td>
+                <td colspan="2"><h3>Add new Customer</h3></td>
             </tr>
+
             <tr height = "40">
-                <th>Movie Name</th>
-                <td><input id=txtCustomerID" name="txtCustomerID" type="text" size = "50"></td>
-            </tr>
-            <tr height = "40">
-                <th>Movie Raiting</th>
+                <th>First Name</th>
                 <td><input id= "txtFirstName" name="txtFirstName" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Name</th>
+                <th>Last Name</th>
                 <td><input id= "txtLastName" name="txtLastName" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Raiting</th>
+                <th>Address</th>
                 <td><input id= "txtAddress" name="txtAddress" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Name</th>
+                <th>City</th>
                 <td><input id= "txtCity" name="txtCity" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Raiting</th>
+                <th>State</th>
                 <td><input id= "txtState" name="txtState" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Name</th>
+                <th>ZIP</th>
                 <td><input id= "txtZip" name="txtZip" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Raiting</th>
+                <th>Phone #</th>
                 <td><input id= "txtPhone" name="txtPhone" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Name</th>
+                <th>Email</th>
                 <td><input id= "txtEmail" name="txtEmail" type="text" size = "50"></td>
             </tr>
             <tr height = "40">
-                <th>Movie Raiting</th>
+                <th>Password</th>
                 <td><input id= "txtPassword" name="txtPassword" type="text" size = "50"></td>
             </tr>
             <tr height="60">
                 <td colspan="2">
-                    <input type= "submit" value="Add new movie">
+                    <input type= "submit" value="Add new Customer">
                 </td>
             </tr>
         </table>

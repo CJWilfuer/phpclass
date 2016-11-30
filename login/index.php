@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!empty($_POST["txtEmail"])){
-    if (!empty($_POST["txtPassword"])) {
-        $Email = $_POST["txtEmail"];
-        $Password = $_POST["txtPassword"];
+if (!isset($_POST["txtEmail"])){
+    if (!isset($_POST["txtPassword"])) {
+        $email = $_POST["txtEmail"];
+        $pwd = $_POST["txtPassword"];
         $errmsg = "";
 
         include '../includes/dbConnect.php';
@@ -16,7 +16,7 @@ if (!empty($_POST["txtEmail"])){
             $row = $sql->fetch();
 
             if ($row != null) {
-                $hashedPassword = md5($password . $row["memberKey"]);
+                $hashedPassword = md5($Pwd . $row["memberKey"]);
 
                 if ($hashedPassword == $row["memberPassword"]) {
                     $_SESSION["UID"] = 1;
