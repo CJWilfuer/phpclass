@@ -6,17 +6,16 @@ $key = sprintf('%04X%04X%04X%04X%04X%04X%04X%04X', mt_rand(0, 65535), mt_rand(0,
      mt_rand(0, 65535), mt_rand(0, 65535));
 
 
-if($_SESSION["RoleID"]!=1){
-header("Location:index.php");
-}
+//if($_SESSION["RoleID"]!=1){
+//header("Location:index.php");
+//}
 
-if(isset($_POST["Submitted"])) {
+if(isset($_POST["Submit"])) {
     if (isset($_POST["txtFName"])) {
-        $FNmae = $_POST["txtFName"];
+        $FName = $_POST["txtFName"];
     } else {
         $errmsg = "full name is required!";
     }
-
     if (isset($_POST["txtEmail"])) {
         $Email = $_POST["txtEmail"];
     } else {
@@ -45,15 +44,14 @@ if(isset($_POST["Submitted"])) {
     include '../includes/dbConnect.php';
 
     try {
-        $db = new PDO($Sdn, $username, $password, $options);
-        $sql = $db->prepare("insert into memberLogin (memberName, memberEmail memberPasswprd,
-        RoleID, memberKey) VALUE (:NAME , :Email,:Passwprd,:ID,:Key)");
+        $db = new PDO($dsn, $username, $password, $options);
+        $sql = $db->prepare("insert into memberLogin (memberName, memberEmail, memberPassword, RoleID, memberKey) VALUE (:memberName, :memberEmail, :memberPassword, :RoleID, :memberKey)");
+        $sql->bindValue(":memberName", $FName);
+        $sql->bindValue(":memberEmail", $Email);
+        $sql->bindValue(":memberPassword", md5($Password . $key));
+        $sql->bindValue(":RoleID", $Role);
+        $sql->bindValue(":memberKey", $key);
 
-        $sql->blindvalue(":Name", $FName);
-        $sql->blindvalue(":Email", $Email);
-        $sql->blindvalue(":Password", md5($Password . $Key));
-        $sql->blindvalue(":RID", $Role);
-        $sql->blindvalue(":Key", $key);
         $sql->execute();
     }
 catch (PDOException $e){
@@ -96,7 +94,7 @@ $FName = "";
             </tr>
             <tr height = "40">
                 <th>Email</th>
-                <td><input id=txtEmail" name="txt" type="email" value="<?=$Email?>" size = "50"></td>
+                <td><input id=txtEmail" name="txtEmail" type="email" size = "50"></td>
             </tr>
             <tr height = "40">
                 <th>password</th>
@@ -109,7 +107,7 @@ $FName = "";
             <tr height = "40">
                 <th>Role</th>
                 <td>
-                    <select id="txtRole">
+                    <select id="txtRole" name="txtRole">
                         <option value="1">Admin</option>
                         <option value="2">Member</option>
                         <option value="3">Oporator</option>
