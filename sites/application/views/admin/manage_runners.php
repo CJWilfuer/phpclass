@@ -53,7 +53,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="8.php">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> Tables

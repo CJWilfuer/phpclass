@@ -1,12 +1,12 @@
 <?php
 $SecPerMin = 60;
 $SecPerHour = 60 * $SecPerMin;
-$SecPerDay = 24 *$SecPerHour;
-$SecPerYear = 365.25 *$SecPerDay;
+$SecPerDay = 24 * $SecPerHour;
+$SecPerYear = 365.25 * $SecPerDay;
 
 $now = time();
 $eos = mktime(15,20,0,12,20,2016);
-
+//end of semester
 $Seconds = $eos - $now;
 
 $Years = floor($Seconds / $SecPerYear);
@@ -34,7 +34,7 @@ $Seconds = $Seconds - ($Minutes * $SecPerMin);
 </head>
 <body>
 <main>
-    <P>Years:<?=$Years?>|Days:<?=$Days?>|Hours:<?=$Hours?>|Minutes:<?=$Minutes?>|Seconds<?=$Seconds?></P>
+    <P>Years:<?=$Years?>|Days:<?=$Days?>|Hours:<?=$Hours?>|Minutes:<?=$Minutes?>|Seconds:<?=$Seconds?></P>
 </main>
 
     <header>

@@ -24,7 +24,7 @@ function get_races(){
     include '../../includes/dbConnect.php';
     try {
         $db = new PDO($dsn, $username, $password, $options);
-        $sql = $db->prepare("select * from Race");
+        $sql = $db->prepare("select * from race");
         $sql->execute();
         $results = $sql->fetchAll();
         echo '{"Races":' . json_encode($results) . '}';
@@ -42,11 +42,11 @@ function get_runners($raceID){
     include '../../includes/dbConnect.php';
     try {
         $db = new PDO($dsn, $username, $password, $options);
-        $sql = $db->prepare("Select MemberLogin.MemberName 
+        $sql = $db->prepare("Select memberLogin.memberName 
                                From Member_Race INNER JOIN  memberLogin 
-                               ON  member_race.memberID = memberLogin.memberID
-                               WHERE  member_Race.role = 3 AND 
-                               member_Race.raceID = 1");
+                               ON  Member_Race.memberID = memberLogin.memberID
+                               WHERE  Member_Race.RoleID = 3 AND 
+                               Member_Race.raceID = 1");
         $sql->bindValue(":raceID", $raceID);
         $sql->execute();
         $results = $sql->fetchAll();
@@ -60,7 +60,7 @@ function get_runners($raceID){
 }
 
 
-function add_runners(){
+function add_runner(){
     $request = \Slim\Slim::getInstance()->request();
     $json = json_decode($request->getBody(),TRUE);
     $memberID = $json["memberID"];
@@ -71,13 +71,13 @@ function add_runners(){
     try {
         $db = new PDO($dsn, $username, $password, $options);
         $sql = $db->prepare("SELECT 
-member_race.raceID
+Member_Race.raceID
       FROM
-      member_race 
-      INNER JOIN memberLogin ON member_race.memberID = MemberLogin.memberID
+      Member_Race 
+      INNER JOIN memberLogin ON member_race.memberID = memberLogin.memberID
       WHERE
-     member_race.raceID = 2 AND 
-    memberLogin.MemberKey = :APIKey");
+     Member_Race.raceID = 2 AND 
+    memberLogin.memberKey = :APIKey");
         $sql->bindValue(":APIKey", $memberKey);
         $sql->execute();
         $results = $sql->fetch();
@@ -101,14 +101,41 @@ member_race.raceID
 
 }
 
-function delete_runners(){
+function delete_runner(){
     $request = \Slim\Slim::getInstance()->request();
     $json = json_decode($request->getBody(),TRUE);
+    $memberID = $json["memberID"];
+    $memberKey = $json["memberKey"];
 
-    echo $json["delete_runner"];
+    include '../../includes/dbConnect.php';
+    try {
+        $db = new PDO($dsn, $username, $password, $options);
+        $sql = $db->prepare("Delete FROM memberLogin
+                            WHERE memberLogin.memberID = 2 
+                            AND memberLogin.MemberKey = :APIKey");
+        $sql->bindValue(":APIKey", $memberKey);
+        $sql->execute();
+        $results = $sql->fetch();
+
+        if($results == null){
+            echo "bad API KEY";
+
+        }else{
+            $sql = $db->prepare("insert into member_race (memberID, raceID, RoleID)VALUES(:memberID, :raceID,3)");
+            $sql->bindValue(":MemberID", $memberID);
+            $sql->bindValue(":RaceID", $raceID);
+            $sql->execute();
+        }
+
+        $results = null;
+        $db = null;
+    } catch (PDOException $e) {
+        $error = $e->getMessage();
+        echo json_encode($error);
+    }
 
 }
-function update_runners(){
+function update_runner(){
     $request = \Slim\Slim::getInstance()->request();
     $json = json_decode($request->getBody(),TRUE);
     echo $json["update_runner"];

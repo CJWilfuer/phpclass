@@ -24,7 +24,7 @@ if (!isset($_POST["txtEmail"])){
                     if ($row["RoleID"] == 1) {
                         header("Location:admin.php");
                     } else {
-                        header("Location:member.php");
+                        header("Location:Member.php");
                     }
                 } else {
                     $errmsg = "wrong username or password";

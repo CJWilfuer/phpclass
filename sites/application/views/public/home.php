@@ -185,10 +185,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-sm-12">
+                    <?=validation_errors('<p class="error">')?>
                     <?php
-                        echo validation_errors('<p class="error">');
                         if(isset($error_message)){
                             echo "<p class='error'>$error_message</p>";
+                    $error_message=null;
                         }
 
                     ?>
@@ -207,8 +208,10 @@
                     <h1>Create Account</h1>
                     <?php
                     echo  form_open('home/create');
-                    echo form_input('user_name','','placeholder="User Name"')."<br />";
+                    echo form_input('user_name','','placeholder="Full Name"')."<br />";
+                    echo form_input('user_email','','placeholder="User Email"')."<br />";
                     echo form_password('password','','placeholder="password"')."<br />";
+                    echo form_password('password','','placeholder=" Retype password"')."<br />";
                     echo form_submit('submit','Create Account')."<br />";
                     echo form_close();
                     ?>

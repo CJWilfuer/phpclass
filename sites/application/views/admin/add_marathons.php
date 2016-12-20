@@ -53,7 +53,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="8.php">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="home.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Forms
@@ -66,26 +66,30 @@
                 <div class="row">
                     <div class="col-lg-6">
 
-                        <form role="form">
+                        <form method="post" action="/sites/admin/add_race" role="form">
 
                             <div class="form-group">
                                 <label>Add marathon name</label>
-                                <input class="form-control">
+                                <input name="txtName" class="form-control">
                                 <p class="help-block">Example block-level help text here.</p>
                             </div>
 
                             <div class="form-group">
                                 <label>Add date</label>
-                                <input class="form-control" placeholder="Enter text">
-                            </div>
+                                <input type="date" name="txtDate" class="form-control"></textarea>"<br />
+                    </div>
                             <div class="form-group">
                                 <label>Add Location</label>
-                                <input class="form-control" placeholder="Enter text">
+                                <input name="txtLocation" class="form-control" placeholder="Enter text">
                             </div>
                             <div class="form-group">
-                                <label>Race discription</label>
-                                <input class="form-control" placeholder="Enter text">
-                            </div>
+                                <label>Race Description</label>
+                                <textarea name="txtDescription" class="form-control"></textarea><br />
+                               </div>
+
+                            <button type="submit" class="btn btn_default">Add race</button>
+                            <button type="reset" class="btn btn_default">Reset</button>
+
                             <!--
                            <div class="form-group">
                                 <label></label>

@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>my movie list</title>
-    <link rel = "stylesheet" type="text/css" href="../CSS/base.css">
-
+    <?php include  '../includes/head.php'?>
 </head>
-
 <body>
-<header><?php include  '../includes/header.php'?></header>
-<nav><?php include '../includes/nav.php' ?></nav>
+<header>
+    <?php include  '../includes/header.php'?>
+</header>
+
+<nav>
+    <?php include '../includes/nav.php' ?>
+</nav>
 <main>
     <H3> my movie list</H3>
 
@@ -63,6 +64,6 @@
 
 
 
-<footer><?php include 'includes/footer.php'?> </footer>
+<footer><?php include '../includes/footer.php'?> </footer>
 </body>
 </html>

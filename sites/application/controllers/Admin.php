@@ -12,9 +12,26 @@ class Admin extends CI_Controller {
 	}
     public function manage_marathon()
     {
+        $this->load->model('Race');
         $data=array('manage_marathon'=>'true');
+        $data['races']= $this->Race->get_races();
         $this->load->view('admin/manage_marathon',$data);
     }
+    public function add_race()
+    {
+        $this->load->model('Race');
+        $this->Race->add_race($this->input->Post('txtName'),($this->input->Post('txtDate')),($this->input->Post('txtLocation')),($this->input->Post('txtDescription')));
+
+        redirect('admin/manage_marathon',"refresh");
+    }
+
+    public function delete_race($id)
+    {
+        $this->load->model('Race');
+        $this->Race->delete_race($id);
+        redirect('admin/manage_marathon',"refresh");
+    }
+
     public function add_marathons()
     {
         $data=array('add_marathons'=>'true');
